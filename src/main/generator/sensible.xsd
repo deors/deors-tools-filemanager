@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="sensible" type="Sensible"/>
+
+    <xsd:complexType name="Sensible">
+        <xsd:sequence>
+            <xsd:element name="project" type="Project" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Project">
+        <xsd:sequence>
+            <xsd:element name="object" type="Object" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="sourceFolder" type="xsd:string" default="source"/>
+        <xsd:attribute name="basePackage" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Object">
+        <xsd:sequence>
+            <xsd:element name="field" type="Field" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="frameTitle" type="xsd:string" use="required"/>
+        <xsd:attribute name="frameAbout" type="xsd:string" default=""/>
+        <xsd:attribute name="log" type="xsd:boolean" default="false"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Field">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="description" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="Type" use="required"/>
+        <xsd:attribute name="required" type="xsd:boolean"/>
+        <xsd:attribute name="readOnly" type="xsd:boolean"/>
+        <xsd:attribute name="maxLength" type="xsd:int"/>
+        <xsd:attribute name="minValue" type="xsd:int"/>
+        <xsd:attribute name="maxValue" type="xsd:int"/>
+        <xsd:attribute name="flag" type="xsd:boolean"/>
+        <xsd:attribute name="maxIntegerDigits" type="xsd:int"/>
+        <xsd:attribute name="maxFractionalDigits" type="xsd:int"/>
+        <xsd:attribute name="negativeValuesAllowed" type="xsd:boolean"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SensibleString"/>
+            <xsd:enumeration value="SensibleBoolean"/>
+            <xsd:enumeration value="SensibleInteger"/>
+            <xsd:enumeration value="SensibleLong"/>
+            <xsd:enumeration value="SensibleBigDecimal"/>
+            <xsd:enumeration value="SensibleDate"/>
+            <xsd:enumeration value="SensibleTime"/>
+            <xsd:enumeration value="SensibleDateTime"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>

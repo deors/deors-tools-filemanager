@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sensible xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="sensible.xsd">
+    <project name="deors.tools"
+             basePackage="deors.tools.filemanager">
+        <object name="FileRenamer"
+                frameTitle="deors file renamer"
+                frameAbout="About deors file renamer 1.0\nThis tool is part of deors file tools suite\nAuthor: deors\n\u00a9 deors 2009-2011"
+                log="true">
+            <field name="regex" description="Regular expression"
+                   type="SensibleString" required="true" maxLength="256"/>
+            <field name="replacement" description="Replacement text"
+                   type="SensibleString" required="false" maxLength="256"/>
+            <field name="rootDir" description="Root Directory"
+                   type="SensibleString" required="true" maxLength="256"/>
+            <field name="recurse" description="Recurse subdirectories"
+                   type="SensibleBoolean" flag="true"/>
+            <field name="applyToFiles" description="Apply to files"
+                   type="SensibleBoolean" flag="true"/>
+            <field name="applyToDirectories" description="Apply to directories"
+                   type="SensibleBoolean" flag="true"/>
+            <field name="filter" description="Filter files"
+                   type="SensibleBoolean" flag="false"/>
+            <field name="filterRegex" description="Filter expression"
+                   type="SensibleString" maxLength="128"/>
+        </object>
+    </project>
+</sensible>
