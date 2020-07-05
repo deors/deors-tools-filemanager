@@ -239,6 +239,11 @@ public final class Resources {
     /**
      * A text string in resource bundle.
      */
+    public static final String RUN_JPEG_METADATA_SORTER = getString("run.jpegMetadataSorter"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
     public static final String DATECHANGER_TITLE = getString("dateChanger.title"); //$NON-NLS-1$
 
     /**
@@ -359,6 +364,21 @@ public final class Resources {
     /**
      * A text string in resource bundle.
      */
+    public static final String JPEG_METADATA_SORTER_TITLE = getString("jpegMetadataSorter.title"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String JPEG_METADATA_SORTER_ABOUT = getString("jpegMetadataSorter.about"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String JPEG_METADATA_SORTER_ABOUT_TEXT = getString("jpegMetadataSorter.aboutText"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
     public static final String FIELD_ROOTDIR = getString("field.rootDir"); //$NON-NLS-1$
 
     /**
@@ -439,6 +459,31 @@ public final class Resources {
     /**
      * A text string in resource bundle.
      */
+    public static final String FIELD_NAME = getString("field.name"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String FIELD_SORT = getString("field.sort"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String FIELD_RENAME = getString("field.rename"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String FIELD_UPDATE = getString("field.update"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String FIELD_TEST = getString("field.test"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
     public static final String LOG_DATE_MODIFIED = getString("log.dateModified"); //$NON-NLS-1$
 
     /**
@@ -455,6 +500,61 @@ public final class Resources {
      * A text string in resource bundle.
      */
     public static final String LOG_ERROR_RENAMING_FILE = getString("log.errorRenamingFile"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_FILE_NAME_NO_CHANGE = getString("log.fileNameNoChange"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_FILE_NEW_DATE = getString("log.fileNewDate"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_FILE_NEW_NAME = getString("log.fileNewName"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_FILE_NEW_NAME_EXISTS = getString("log.fileNewNameExists"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_FILE_RENAME_ERROR = getString("log.fileRenameError"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RENAMING_FILES = getString("log.renamingFiles"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_SORTING_FILES_BY_LAST_MODIFIED_DATE = getString("log.sortingFilesByLastModifiedDate"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_SORTING_FILES_BY_NAME = getString("log.sortingFilesByName"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_UPDATING_LAST_MODIFIED_DATES = getString("log.updatingLastModifiedDates"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String DEBUG_METADATA_DIRECTORY = getString("debug.metadataDirectory"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String DEBUG_TAG_VALUE_TYPE = getString("debug.tagValueType"); //$NON-NLS-1$
 
     /**
      * Default constructor.

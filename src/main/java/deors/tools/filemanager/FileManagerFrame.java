@@ -27,6 +27,7 @@ import deors.tools.filemanager.dateshifter.DateShifterRunner;
 import deors.tools.filemanager.filenameinserter.FileNameInserterRunner;
 import deors.tools.filemanager.filenamesequencer.FileNameSequencerRunner;
 import deors.tools.filemanager.filerenamer.FileRenamerRunner;
+import deors.tools.filemanager.jpegmetadatasorter.JpegMetadataSorterRunner;
 import deors.tools.filemanager.lowercaserenamer.LowerCaseRenamerRunner;
 import deors.tools.filemanager.putzerointimeinator.PutZeroInTimeInatorRunner;
 import deors.tools.filemanager.timezoneshifter.TimeZoneShifterRunner;
@@ -117,6 +118,11 @@ implements ActionListener, WindowListener {
     private JButton putZeroInTimeInatorButton;
 
     /**
+     * The jpeg metadata sorter and renamer tool button.
+     */
+    private JButton jpegMetadataSorterButton;
+
+    /**
      * Default constructor.
      */
     public FileManagerFrame() {
@@ -131,7 +137,7 @@ implements ActionListener, WindowListener {
     private void initialize() {
 
         final int w = 450;
-        final int h = 310;
+        final int h = 340;
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setTitle(Resources.SUITE_TITLE);
@@ -271,6 +277,7 @@ implements ActionListener, WindowListener {
             mainContentPanel.add(getFileNameInserterButton(), null);
             mainContentPanel.add(getFileNameSequencerButton(), null);
             mainContentPanel.add(getPutZeroInTimeInatorButton(), null);
+            mainContentPanel.add(getJpegMetadataSorterButton(), null);
         }
         return mainContentPanel;
     }
@@ -344,12 +351,12 @@ implements ActionListener, WindowListener {
      *  @return the button
      */
     private JButton getPutZeroInTimeInatorButton() {
-    
+
         final int x = 15;
         final int y = 105;
         final int w = 415;
         final int h = 22;
-    
+
         if (putZeroInTimeInatorButton == null) {
             putZeroInTimeInatorButton = new JButton();
             putZeroInTimeInatorButton.setBounds(x, y, w, h);
@@ -444,6 +451,27 @@ implements ActionListener, WindowListener {
     }
 
     /**
+     * This method initializes the jpeg metadata sorter and renamer tool button.
+     *
+     *  @return the button
+     */
+    private JButton getJpegMetadataSorterButton() {
+
+        final int x = 15;
+        final int y = 255;
+        final int w = 415;
+        final int h = 22;
+
+        if (jpegMetadataSorterButton == null) {
+            jpegMetadataSorterButton = new JButton();
+            jpegMetadataSorterButton.setBounds(x, y, w, h);
+            jpegMetadataSorterButton.setText(Resources.RUN_JPEG_METADATA_SORTER);
+            jpegMetadataSorterButton.addActionListener(this);
+        }
+        return jpegMetadataSorterButton;
+    }
+
+    /**
      * Handler method for action performed events.
      *
      * @param event the action event
@@ -470,6 +498,8 @@ implements ActionListener, WindowListener {
             fileNameSequencerAction();
         } else if (event.getSource() == getPutZeroInTimeInatorButton()) {
             putZeroInTimeInatorAction();
+        } else if (event.getSource() == getJpegMetadataSorterButton()) {
+            jpegMetadataSorterAction();
         }
     }
 
@@ -542,6 +572,15 @@ implements ActionListener, WindowListener {
     private void putZeroInTimeInatorAction() {
 
         SwingUtilities.invokeLater(new PutZeroInTimeInatorRunner());
+        exitAction();
+    }
+
+    /**
+     * Method invoked when the jpeg metadata sorter and renamer tool button is pressed.
+     */
+    private void jpegMetadataSorterAction() {
+
+        SwingUtilities.invokeLater(new JpegMetadataSorterRunner());
         exitAction();
     }
 
