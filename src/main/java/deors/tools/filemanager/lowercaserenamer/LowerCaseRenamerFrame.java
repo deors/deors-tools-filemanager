@@ -182,16 +182,16 @@ implements ActionListener, WindowListener, PropertyChangeListener, ActivityListe
      */
     private void initialize() {
 
-        final int w = 800;
-        final int h = 245;
+        final int w = 795;
+        final int h = 200;
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setTitle(Resources.LOWERCASERENAMER_TITLE);
-        setSize(w, h);
         setResizable(false);
 
         setJMenuBar(getMainMenuBar());
         setContentPane(getMainContentPanel());
+        SensibleToolkit.setContentSize(this, w, h);
 
         addWindowListener(this);
 

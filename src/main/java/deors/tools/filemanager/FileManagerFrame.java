@@ -136,16 +136,16 @@ implements ActionListener, WindowListener {
      */
     private void initialize() {
 
-        final int w = 450;
-        final int h = 340;
+        final int w = 445;
+        final int h = 292;
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setTitle(Resources.SUITE_TITLE);
-        setSize(w, h);
         setResizable(false);
 
         setJMenuBar(getMainMenuBar());
         setContentPane(getMainContentPanel());
+        SensibleToolkit.setContentSize(this, w, h);
 
         addWindowListener(this);
 
