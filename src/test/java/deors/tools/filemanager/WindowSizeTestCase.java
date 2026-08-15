@@ -22,6 +22,7 @@ import deors.core.sensible.SensibleToolkit;
 import deors.tools.filemanager.datechanger.DateChangerFrame;
 import deors.tools.filemanager.dateshifter.DateShifterFrame;
 import deors.tools.filemanager.filenameinserter.FileNameInserterFrame;
+import deors.tools.filemanager.filenameresequencer.FileNameReSequencerFrame;
 import deors.tools.filemanager.filenamesequencer.FileNameSequencerFrame;
 import deors.tools.filemanager.filerenamer.FileRenamerFrame;
 import deors.tools.filemanager.jpegmetadatasorter.JpegMetadataSorterFrame;
@@ -55,11 +56,12 @@ public class WindowSizeTestCase {
     static Stream<Arguments> frames() {
 
         return Stream.of(
-            Arguments.of("FileManagerFrame", (Supplier<JFrame>) FileManagerFrame::new, 445, 292),
+            Arguments.of("FileManagerFrame", (Supplier<JFrame>) FileManagerFrame::new, 445, 322),
             Arguments.of("DateChangerFrame", (Supplier<JFrame>) DateChangerFrame::new, 795, 230),
             Arguments.of("DateShifterFrame", (Supplier<JFrame>) DateShifterFrame::new, 795, 230),
             Arguments.of("TimeZoneShifterFrame", (Supplier<JFrame>) TimeZoneShifterFrame::new, 795, 230),
             Arguments.of("FileNameSequencerFrame", (Supplier<JFrame>) FileNameSequencerFrame::new, 795, 230),
+            Arguments.of("FileNameReSequencerFrame", (Supplier<JFrame>) FileNameReSequencerFrame::new, 795, 230),
             Arguments.of("LowerCaseRenamerFrame", (Supplier<JFrame>) LowerCaseRenamerFrame::new, 795, 200),
             Arguments.of("PutZeroInTimeInatorFrame", (Supplier<JFrame>) PutZeroInTimeInatorFrame::new, 795, 200),
             Arguments.of("FileNameInserterFrame", (Supplier<JFrame>) FileNameInserterFrame::new, 795, 260),

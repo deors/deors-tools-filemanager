@@ -25,6 +25,7 @@ import deors.core.sensible.SensibleToolkit;
 import deors.tools.filemanager.datechanger.DateChangerRunner;
 import deors.tools.filemanager.dateshifter.DateShifterRunner;
 import deors.tools.filemanager.filenameinserter.FileNameInserterRunner;
+import deors.tools.filemanager.filenameresequencer.FileNameReSequencerRunner;
 import deors.tools.filemanager.filenamesequencer.FileNameSequencerRunner;
 import deors.tools.filemanager.filerenamer.FileRenamerRunner;
 import deors.tools.filemanager.jpegmetadatasorter.JpegMetadataSorterRunner;
@@ -113,6 +114,11 @@ implements ActionListener, WindowListener {
     private JButton fileNameSequencerButton;
 
     /**
+     * The file name resequencer tool button.
+     */
+    private JButton fileNameReSequencerButton;
+
+    /**
      * The putZeroInTimeInator tool button.
      */
     private JButton putZeroInTimeInatorButton;
@@ -137,7 +143,7 @@ implements ActionListener, WindowListener {
     private void initialize() {
 
         final int w = 445;
-        final int h = 292;
+        final int h = 322;
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setTitle(Resources.SUITE_TITLE);
@@ -276,6 +282,7 @@ implements ActionListener, WindowListener {
             mainContentPanel.add(getFileRenamerButton(), null);
             mainContentPanel.add(getFileNameInserterButton(), null);
             mainContentPanel.add(getFileNameSequencerButton(), null);
+            mainContentPanel.add(getFileNameReSequencerButton(), null);
             mainContentPanel.add(getPutZeroInTimeInatorButton(), null);
             mainContentPanel.add(getJpegMetadataSorterButton(), null);
         }
@@ -451,6 +458,27 @@ implements ActionListener, WindowListener {
     }
 
     /**
+     * This method initializes the file name resequencer tool button.
+     *
+     *  @return the button
+     */
+    private JButton getFileNameReSequencerButton() {
+
+        final int x = 15;
+        final int y = 255;
+        final int w = 415;
+        final int h = 22;
+
+        if (fileNameReSequencerButton == null) {
+            fileNameReSequencerButton = new JButton();
+            fileNameReSequencerButton.setBounds(x, y, w, h);
+            fileNameReSequencerButton.setText(Resources.RUN_FILE_NAME_RESEQUENCER);
+            fileNameReSequencerButton.addActionListener(this);
+        }
+        return fileNameReSequencerButton;
+    }
+
+    /**
      * This method initializes the jpeg metadata sorter and renamer tool button.
      *
      *  @return the button
@@ -458,7 +486,7 @@ implements ActionListener, WindowListener {
     private JButton getJpegMetadataSorterButton() {
 
         final int x = 15;
-        final int y = 255;
+        final int y = 285;
         final int w = 415;
         final int h = 22;
 
@@ -496,6 +524,8 @@ implements ActionListener, WindowListener {
             fileNameInserterAction();
         } else if (event.getSource() == getFileNameSequencerButton()) {
             fileNameSequencerAction();
+        } else if (event.getSource() == getFileNameReSequencerButton()) {
+            fileNameReSequencerAction();
         } else if (event.getSource() == getPutZeroInTimeInatorButton()) {
             putZeroInTimeInatorAction();
         } else if (event.getSource() == getJpegMetadataSorterButton()) {
@@ -563,6 +593,15 @@ implements ActionListener, WindowListener {
     private void fileNameSequencerAction() {
 
         SwingUtilities.invokeLater(new FileNameSequencerRunner());
+        exitAction();
+    }
+
+    /**
+     * Method invoked when the file name resequencer tool button is pressed.
+     */
+    private void fileNameReSequencerAction() {
+
+        SwingUtilities.invokeLater(new FileNameReSequencerRunner());
         exitAction();
     }
 

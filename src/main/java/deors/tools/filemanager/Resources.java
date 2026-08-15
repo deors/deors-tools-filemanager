@@ -234,6 +234,11 @@ public final class Resources {
     /**
      * A text string in resource bundle.
      */
+    public static final String RUN_FILE_NAME_RESEQUENCER = getString("run.fileNameReSequencer"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
     public static final String RUN_PUT_ZERO_IN_TIME_INATOR = getString("run.putZeroInTimeInator"); //$NON-NLS-1$
 
     /**
@@ -349,6 +354,21 @@ public final class Resources {
     /**
      * A text string in resource bundle.
      */
+    public static final String FILENAMERESEQUENCER_TITLE = getString("fileNameReSequencer.title"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String FILENAMERESEQUENCER_ABOUT = getString("fileNameReSequencer.about"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String FILENAMERESEQUENCER_ABOUT_TEXT = getString("fileNameReSequencer.aboutText"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
     public static final String PUTZEROINTIMEINATOR_TITLE = getString("putZeroInTimeInator.title"); //$NON-NLS-1$
 
     /**
@@ -459,6 +479,11 @@ public final class Resources {
     /**
      * A text string in resource bundle.
      */
+    public static final String FIELD_START = getString("field.start"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
     public static final String FIELD_NAME = getString("field.name"); //$NON-NLS-1$
 
     /**
@@ -545,6 +570,46 @@ public final class Resources {
      * A text string in resource bundle.
      */
     public static final String LOG_UPDATING_LAST_MODIFIED_DATES = getString("log.updatingLastModifiedDates"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_PLAN = getString("log.reseqPlan"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_NEGATIVE = getString("log.reseqNegative"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_CONFLICT_BELOW_START = getString("log.reseqConflictBelowStart"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_CONFLICT_EXISTING = getString("log.reseqConflictExisting"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_CONFLICT_DUPLICATE = getString("log.reseqConflictDuplicate"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_SIMULATION_OK = getString("log.reseqSimulationOk"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_SIMULATION_FAILED = getString("log.reseqSimulationFailed"); //$NON-NLS-1$
+
+    /**
+     * A text string in resource bundle.
+     */
+    public static final String LOG_RESEQ_TEMP_FAILED = getString("log.reseqTempFailed"); //$NON-NLS-1$
 
     /**
      * A text string in resource bundle.
