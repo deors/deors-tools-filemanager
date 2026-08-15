@@ -1,8 +1,6 @@
 package deors.tools.filemanager.jpegmetadatasorter;
 
 import static deors.core.commons.StringToolkit.padLeft;
-import static deors.core.commons.StringToolkit.replace;
-import static deors.core.commons.StringToolkit.replaceMultiple;
 
 import java.io.File;
 import java.io.IOException;
@@ -347,13 +345,13 @@ extends AbstractFileTool {
 
                 // when debug flag is on, show all metadata
                 if (isDebugEnabled()) {
-                    logDebug(replace(Resources.DEBUG_METADATA_DIRECTORY, dir.getName()));
+                    logDebug(Resources.DEBUG_METADATA_DIRECTORY, new String[] {dir.getName()});
                     @SuppressWarnings("rawtypes")
                     Iterator tags = dir.getTags().iterator();
                     while (tags.hasNext()) {
                         Tag tag = (Tag) tags.next();
-                        logDebug(replaceMultiple(Resources.DEBUG_TAG_VALUE_TYPE,
-                            new String[] {tag.getTagName(), tag.getDescription(), Integer.toString(tag.getTagType())}));
+                        logDebug(Resources.DEBUG_TAG_VALUE_TYPE,
+                            new String[] {tag.getTagName(), tag.getDescription(), Integer.toString(tag.getTagType())});
                     }
                 }
 
@@ -361,13 +359,13 @@ extends AbstractFileTool {
                 // using the picture shot date in metadata
                 if (dir.getName().equals(EXIF_METADATA_DIR)) {
                     // fix for certain camera pictures not having the right time zone
-                    //                    boolean fix = false;
-                    //                    if (dir.containsTag(272)) {
-                    //                        if (dir.getString(272).startsWith("KODAK")
-                    //                            || dir.getString(272).startsWith("COOLPIX")) {
-                    //                            fix = true;
-                    //                        }
-                    //                    }
+                    // boolean fix = false;
+                    // if (dir.containsTag(272)) {
+                    //     if (dir.getString(272).startsWith("KODAK")
+                    //         || dir.getString(272).startsWith("COOLPIX")) {
+                    //         fix = true;
+                    //     }
+                    // }
 
                     Date d = null;
                     if (dir.containsTag(EXIF_DATETIME_ORIGINAL)) {
@@ -382,12 +380,12 @@ extends AbstractFileTool {
                     }
 
                     // fix for certain camera pictures not having the right time zone
-                    //                    if (fix) {
-                    //                        Calendar c = Calendar.getInstance();
-                    //                        c.setTime(d);
-                    //                        c.add(Calendar.HOUR_OF_DAY, -1);
-                    //                        d = c.getTime();
-                    //                    }
+                    // if (fix) {
+                    //     Calendar c = Calendar.getInstance();
+                    //     c.setTime(d);
+                    //     c.add(Calendar.HOUR_OF_DAY, -1);
+                    //     d = c.getTime();
+                    // }
 
                     // adding the time zone diff
                     // if the system property is set
@@ -400,20 +398,14 @@ extends AbstractFileTool {
                         file.setLastModified(d.getTime());
                     }
                     synchronized (LOG_FORMAT) {
-                        logInfo(replaceMultiple(Resources.LOG_FILE_NEW_DATE,
-                            new String[] {file.getName(), LOG_FORMAT.format(d)}));
+                        logInfo(Resources.LOG_FILE_NEW_DATE,
+                            new String[] {file.getName(), LOG_FORMAT.format(d)});
                     }
                 }
             }
             return true;
-        } catch (JpegProcessingException jpe) {
-            logError(replace(Resources.PRO_EXCEPTION, jpe.getMessage()));
-            return false;
-        } catch (IOException ioe) {
-            logError(replace(Resources.PRO_EXCEPTION, ioe.getMessage()));
-            return false;
-        } catch (IllegalArgumentException iae) {
-            logError(replace(Resources.PRO_EXCEPTION, iae.getMessage()));
+        } catch (JpegProcessingException | IOException | IllegalArgumentException ex) {
+            logError(Resources.PRO_EXCEPTION, new String[] {ex.getMessage()});
             return false;
         }
     }
@@ -458,22 +450,22 @@ extends AbstractFileTool {
 
         // renaming the file
         if (newFileName.toString().equals(file.getName())) {
-            logInfo(replace(Resources.LOG_FILE_NAME_NO_CHANGE, file.getName()));
+            logInfo(Resources.LOG_FILE_NAME_NO_CHANGE, new String[] {file.getName()});
         } else {
             if (test) {
                 if (new File(file.getParentFile(), newFileName.toString()).exists()) {
-                    logInfo(replaceMultiple(Resources.LOG_FILE_NEW_NAME_EXISTS,
-                        new String[] {file.getName(), newFileName.toString()}));
+                    logInfo(Resources.LOG_FILE_NEW_NAME_EXISTS,
+                        new String[] {file.getName(), newFileName.toString()});
                 } else {
-                    logInfo(replaceMultiple(Resources.LOG_FILE_NEW_NAME,
-                        new String[] {file.getName(), newFileName.toString()}));
+                    logInfo(Resources.LOG_FILE_NEW_NAME,
+                        new String[] {file.getName(), newFileName.toString()});
                 }
             } else {
                 if (file.renameTo(new File(file.getParentFile(), newFileName.toString()))) {
-                    logInfo(replaceMultiple(Resources.LOG_FILE_NEW_NAME,
-                        new String[] {file.getName(), newFileName.toString()}));
+                    logInfo(Resources.LOG_FILE_NEW_NAME,
+                        new String[] {file.getName(), newFileName.toString()});
                 } else {
-                    logError(replace(Resources.LOG_FILE_RENAME_ERROR, file.getName()));
+                    logError(Resources.LOG_FILE_RENAME_ERROR, new String[] {file.getName()});
                 }
             }
         }

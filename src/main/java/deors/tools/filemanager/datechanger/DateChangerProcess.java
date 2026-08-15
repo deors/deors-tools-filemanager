@@ -1,7 +1,5 @@
 package deors.tools.filemanager.datechanger;
 
-import static deors.core.commons.StringToolkit.replace;
-
 import java.io.File;
 import java.util.Date;
 
@@ -96,9 +94,9 @@ public class DateChangerProcess
     private void applyActions(File file) {
 
         if (file.setLastModified(newDate.getTime())) {
-            logInfo(replace(Resources.LOG_DATE_MODIFIED, file.getAbsolutePath()));
+            logInfo(Resources.LOG_DATE_MODIFIED, new String[] {file.getAbsolutePath()});
         } else {
-            logError(replace(Resources.LOG_ERROR_MODIFYING_DATE, file.getAbsolutePath()));
+            logError(Resources.LOG_ERROR_MODIFYING_DATE, new String[] {file.getAbsolutePath()});
         }
     }
 

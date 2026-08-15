@@ -1,7 +1,5 @@
 package deors.tools.filemanager.lowercaserenamer;
 
-import static deors.core.commons.StringToolkit.replaceMultiple;
-
 import java.io.File;
 
 import org.slf4j.Logger;
@@ -91,11 +89,11 @@ public class LowerCaseRenamerProcess
         }
 
         if (file.renameTo(newFile)) {
-            logInfo(replaceMultiple(Resources.LOG_FILE_RENAMED,
-                new String[] {file.getAbsolutePath(), newFile.getAbsolutePath()}));
+            logInfo(Resources.LOG_FILE_RENAMED,
+                new String[] {file.getAbsolutePath(), newFile.getAbsolutePath()});
         } else {
-            logError(replaceMultiple(Resources.LOG_ERROR_RENAMING_FILE,
-                new String[] {file.getAbsolutePath(), newFile.getAbsolutePath()}));
+            logError(Resources.LOG_ERROR_RENAMING_FILE,
+                new String[] {file.getAbsolutePath(), newFile.getAbsolutePath()});
         }
     }
 

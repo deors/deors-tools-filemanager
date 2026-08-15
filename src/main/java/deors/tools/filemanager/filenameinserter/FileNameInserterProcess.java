@@ -1,7 +1,5 @@
 package deors.tools.filemanager.filenameinserter;
 
-import static deors.core.commons.StringToolkit.replaceMultiple;
-
 import java.io.File;
 
 import org.slf4j.Logger;
@@ -118,11 +116,9 @@ public class FileNameInserterProcess
         }
 
         if (file.renameTo(newFile)) {
-            logInfo(replaceMultiple(Resources.LOG_FILE_RENAMED,
-                new String[] {file.getName(), newFile.getName()}));
+            logInfo(Resources.LOG_FILE_RENAMED, new String[] {file.getName(), newFile.getName()});
         } else {
-            logError(replaceMultiple(Resources.LOG_ERROR_RENAMING_FILE,
-                new String[] {file.getName(), newFile.getName()}));
+            logError(Resources.LOG_ERROR_RENAMING_FILE, new String[] {file.getName(), newFile.getName()});
         }
     }
 

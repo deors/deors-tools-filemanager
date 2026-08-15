@@ -1,7 +1,5 @@
 package deors.tools.filemanager.timezoneshifter;
 
-import static deors.core.commons.StringToolkit.replace;
-
 import java.io.File;
 import java.util.Calendar;
 
@@ -99,9 +97,9 @@ public class TimeZoneShifterProcess
         time.add(Calendar.HOUR_OF_DAY, tzShift);
 
         if (file.setLastModified(time.getTimeInMillis())) {
-            logInfo(replace(Resources.LOG_DATE_MODIFIED, file.getAbsolutePath()));
+            logInfo(Resources.LOG_DATE_MODIFIED, file.getAbsolutePath());
         } else {
-            logError(replace(Resources.LOG_ERROR_MODIFYING_DATE, file.getAbsolutePath()));
+            logError(Resources.LOG_ERROR_MODIFYING_DATE, file.getAbsolutePath());
         }
     }
 
